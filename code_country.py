@@ -38,7 +38,7 @@ def fetch_country_codes(url):
 # Получаем данные
 try:
     country_codes = fetch_country_codes(url)
-    print(country_codes)  # Печатаем или сохраняем словарь
+    # print(country_codes)  # Печатаем или сохраняем словарь
 
 except Exception as e:
     print(f"Ошибка: {e}")

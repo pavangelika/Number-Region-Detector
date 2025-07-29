@@ -1,10 +1,6 @@
 import duckdb
-
-from code_country import country_codes
-
-DB_PATH = "D:\\!Numbers\\numbers.db"
-
-
+import requests
+from var import DB_PATH
 
 def format_phone_number(phone_number: str) -> (str, str):
     """
@@ -53,7 +49,7 @@ def lookup_phone(phone):
         try:
             query = f"""
             SELECT "АВС/ DEF" as kod, От::INTEGER as "from", До::INTEGER as "to", Оператор, Регион
-            FROM numbers.main.phones
+            FROM numbers.main.all_numbers
             WHERE kod = '{kod}' AND {number} >= "from" AND {number} <= "to"
             """
             result = con.sql(query).fetchall()
@@ -76,22 +72,18 @@ def lookup_phone(phone):
         if "*" in region in region:
             region = region.split("*")[0]  # Оставляем только часть до символа "|"
 
-        # response = {
-        #     "phone": phone,
-        #     "kod": row[0],
-        #     "number": number,
-        #     "full_number": int(kod + str(number)),
-        #     "Страна": country,
-        #     "Оператор": row[4],
-        #     "Регион": row[5],
-        #     "Территория ГАР": row[6],
-        #     "ИНН": row[7],
-        # }
         response = {
             "phone": phone,
-            "country" : country,
-            "region": region
+            # "kod": row[0],
+            # "number": number,
+            # "full_number": int(kod + str(number)),
+            # "Оператор": row[3],
+            "Страна": country,
+            "Регион": row[4],
+            # "Территория ГАР": row[6],
+            # "ИНН": row[7],
         }
+
         print(response)
         return response
 
@@ -104,4 +96,12 @@ def lookup_phone(phone):
         print(response)
         return response
 
-lookup_phone("+79879714206")
+
+def search_phone():
+    while True:
+        number = input("Введите номер телефона (или 'stop/стоп' для выхода): ").strip()
+    
+        if number.lower() in ('stop', 'стоп'):
+            break
+    
+        lookup_phone(number)
