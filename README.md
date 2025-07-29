@@ -30,8 +30,8 @@ SQLite/PostgreSQL для хранения данных
 
 ### 🚀 Быстрый старт
 ```bash
-git clone https://github.com/pavangelika/numberBase.git
-cd numberBase
+git clone https://github.com/pavangelika/Number-Region-Detector.git
+cd Number-Region-Detector
 pip install -r requirements.txt
 python download_csv_cod_and_numbers.py
 python create_db.py
