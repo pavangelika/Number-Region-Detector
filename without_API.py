@@ -105,3 +105,5 @@ def search_phone():
             break
     
         lookup_phone(number)
+
+search_phone()
