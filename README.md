@@ -39,8 +39,9 @@ API операторов для актуальных данных (или лок
 
 🚀 Быстрый старт
 bash
-git clone https://github.com/ваш-репозиторий/phone-region-detector.git
-cd phone-region-detector
+git clone https://github.com/pavangelika/numberBase.git
+cd numberBase
+
 pip install -r requirements.txt
 python main.py +79123456789
 📝 Пример вывода
@@ -62,4 +63,4 @@ plaintext
 916	Билайн	Москва	Москва
 ...	...	...	...
 📜 Лицензия
-MIT License © 2023 [Ваше Имя]
+MIT License © 2025 [pavangelika]
