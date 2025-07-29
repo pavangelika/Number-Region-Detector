@@ -30,7 +30,7 @@ SQLite/PostgreSQL для хранения данных
 git clone https://github.com/pavangelika/numberBase.git
 cd numberBase
 pip install -r requirements.txt
-python main.py 83462348781
+python main.py
 ```
 
 📁 Структура базы данных
