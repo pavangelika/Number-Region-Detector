@@ -4,8 +4,7 @@ import subprocess
 
 from unicodedata import lookup
 from var import DOWNLOAD_DIR, DB_PATH
-from without_API import search_phone
-
+from without_API import lookup_phone
 
 def wait_for_csv_files(timeout=60):
     """Ожидает появления CSV файлов в папке загрузки"""
@@ -130,7 +129,13 @@ def main():
     print("=" * 50)
 
     # 5. Запуск проверки номера телефона
-    search_phone()
+    while True:
+        number = input("Введите номер телефона (или 'stop/стоп' для выхода): ").strip()
+
+        if number.lower() in ('stop', 'стоп'):
+            break
+
+        lookup_phone(number)
 
 
 if __name__ == "__main__":

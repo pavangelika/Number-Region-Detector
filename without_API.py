@@ -97,13 +97,15 @@ def lookup_phone(phone):
         return response
 
 
-def search_phone():
-    while True:
-        number = input("Введите номер телефона (или 'stop/стоп' для выхода): ").strip()
-    
-        if number.lower() in ('stop', 'стоп'):
-            break
-    
-        lookup_phone(number)
+if __name__ == "__main__":
+    # Этот блок выполняется только при прямом запуске скрипта,
+    # но не при импорте
+    def search_phone():
+        while True:
+            number = input("Введите номер телефона (или 'stop/стоп' для выхода): ").strip()
+            if number.lower() in ('stop', 'стоп'):
+                break
+            lookup_phone(number)
 
-search_phone()
+
+    search_phone()
